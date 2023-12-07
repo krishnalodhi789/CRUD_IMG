@@ -1,0 +1,14 @@
+<nav class="navbar  navbar-expand-lg" style="background-color: #bcf7f4;">
+    <div class="container-fluid px-4">
+      <a class="navbar-brand" href="{% url 'home' %}">INFOGRAINS</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="d-flex ms-auto">
+          <a href="{% url 'registration' %}"><button class="btn btn-dark px-3">Registration</button></a>
+          <a href="{% url 'records' %}"><button class="btn btn-dark px-3 ms-3">Records</button></a>
+        </div>
+      </div>
+    </div>
+  </nav>

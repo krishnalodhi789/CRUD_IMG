@@ -1,0 +1,62 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CRUD</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous">
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.2/font/bootstrap-icons.min.css"
+      integrity="sha512-D1liES3uvDpPrgk7vXR/hR/sukGn7EtDWEyvpdLsyalQYq6v6YUsTUJmku7B4rcuQ21rf0UTksw2i/2Pdjbd3g=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+  <body>
+    {% include "header.html" %}
+
+    <div class="container py-5">
+      <div class="row my-3">
+        <div class="col-11">
+            <h3 class="text-info">All Records.....</h3>
+            <hr>
+            <table class="table">
+                <thead>
+                    <tr class="">
+                        <th scope="col">Photo</th>
+                        <th scope="col">Roll No</th>
+                        <th scope="col">Full Name</th>
+                        <th scope="col">Email ID</th>
+                        <th scope="col">Mobile</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in  records %}
+                      <tr>
+                        <td><img src="{{user.image.url}}" alt="" style="height: 80px; width:70px"></td>
+                        <td>{{user.roll_no}}</td>
+                        <td>{{user.first_name}} {{user.last_name}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.mobile}}</td>
+                        <td>
+                            <a href="{% url 'deleteUser' id=user.id %}"><button class="btn btn-danger">Delete</button></a>
+                            <a href="{% url 'editUser' id=user.id %}"><button class="btn btn-dark">Edit</button></a>
+                        </td>
+                      </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"></script>
+  </body>
+</html>
